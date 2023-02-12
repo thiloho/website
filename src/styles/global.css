@@ -1,0 +1,5 @@
+body {
+  line-height: 1.5;
+  inline-size: min(65ch, 100vw - 2rem);
+  margin-inline: auto;
+}

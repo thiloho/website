@@ -1,0 +1,25 @@
+---
+import { CollectionEntry, getCollection } from "astro:content";
+import PageLayout from "../../layouts/PageLayout.astro";
+import FormattedDate from "../../components/FormattedDate.astro";
+export async function getStaticPaths() {
+	const articles = await getCollection("articles");
+	return articles.map(article => ({
+		params: { slug: article.slug },
+		props: article,
+	}));
+}
+type Props = CollectionEntry<"articles">;
+const article = Astro.props;
+const { Content } = await article.render();
+---
+
+<PageLayout {...article.data}>
+	<article>
+		<header>
+			<h1>{article.data.title}</h1>
+			<FormattedDate date={article.data.publicationDate} />
+		</header>
+		<Content />
+	</article>
+</PageLayout>
