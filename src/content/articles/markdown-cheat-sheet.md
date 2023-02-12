@@ -81,15 +81,6 @@ Here's a sentence with a footnote. [^1]
 
 [^1]: This is the footnote.
 
-### Heading ID
-
-### My Great Heading {#custom-id}
-
-### Definition List
-
-term
-: definition
-
 ### Strikethrough
 
 ~~The world is flat.~~
@@ -100,20 +91,3 @@ term
 - [ ] Update the website
 - [ ] Contact the media
 
-### Emoji
-
-That is so funny! :joy:
-
-(See also [Copying and Pasting Emoji](https://www.markdownguide.org/extended-syntax/#copying-and-pasting-emoji))
-
-### Highlight
-
-I need to highlight these ==very important words==.
-
-### Subscript
-
-H~2~O
-
-### Superscript
-
-X^2^
