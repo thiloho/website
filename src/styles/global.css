@@ -1,5 +1,6 @@
 body {
-  line-height: 1.5;
+  line-height: 1.6;
   inline-size: min(60ch, 100vw - 2rem);
   margin-inline: auto;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
 }
