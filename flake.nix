@@ -1,5 +1,5 @@
 {
-  description = "JavaScript development environment";
+  description = "NodeJS development environment";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixpkgs-unstable";
@@ -11,9 +11,18 @@
       pkgs = import nixpkgs { inherit system; };
     in {
       devShells.${system}.default = pkgs.mkShell {
-        packages = with pkgs; [
-          nodejs
-        ];
+        packages = [ pkgs.nodejs ];
+      };
+      packages.${system}.default = pkgs.buildNpmPackage {
+        name = "generate";
+
+        src = ./.;
+        npmDepsHash = "sha256-Hoo5dfOkTm4DMnJgB88vhyXUrLrB+rkVKgW+O8TqtQQ=";
+
+        installPhase = ''
+          mkdir $out
+          cp -r ./dist/* $out
+        '';
       };
     };
 }
