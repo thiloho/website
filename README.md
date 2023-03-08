@@ -1,3 +1,3 @@
-# thiloho.github.io
+# Website
 
 My personal website built with Astro.
