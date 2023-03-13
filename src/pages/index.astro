@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import PageLayout from "../layouts/PageLayout.astro";
 import FormattedDate from "../components/FormattedDate.astro";
+import TagList from "../components/TagList.astro";
 
 const articles = (await getCollection("articles")).sort(
 	(a, b) => b.data.publicationDate.valueOf() - a.data.publicationDate.valueOf()
@@ -9,14 +10,44 @@ const articles = (await getCollection("articles")).sort(
 ---
 
 <PageLayout title="Thilo Hohlt" description="The personal website of Thilo Hohlt. I write articles, mainly about topics which have to do with technology.">
-	<h1>Thilo Hohlt</h1>
-	<h2>Articles</h2>
-	<ul>
-		{articles.map(article => (
-			<li>
-				<a href={`/articles/${article.slug}`}>{article.data.title}</a>
-				<FormattedDate date={article.data.publicationDate} />
-			</li>
-		))}
-	</ul>
+	<header class="area">
+		<div class="container">
+			<h1>Thilo Hohlt</h1>
+		</div>
+	</header>
+	<section aria-labelledby="about" class="area">
+		<div class="container">
+			<h2 id="about">
+				<a href="#about">About</a>
+			</h2>
+			<p>I am a young adult who is interested in technology. I like to work with Linux, develop things, and I also go swimming.</p>
+		</div>
+	</section>
+	<section aria-labelledby="articles" class="area">
+		<div class="container">
+			<h2 id="articles">
+				<a href="#articles">Articles</a>
+			</h2>
+			{articles.map(article => (
+				<article>
+					<header>
+						<h3 class="article-preview-title">
+							<a href={`/articles/${article.slug}`}>{article.data.title}</a>
+						</h3>
+						<FormattedDate date={article.data.publicationDate} />
+					</header>
+					<p>{article.data.description}</p>
+					<footer>
+						<TagList tags={article.data.tags} />
+					</footer>
+				</article>
+			))}
+		</div>
+	</section>
 </PageLayout>
+
+<style>
+	section[aria-labelledby="about"] {
+		background-color: hsl(0 0% 95%);
+	}
+</style>

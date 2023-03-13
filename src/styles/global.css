@@ -1,6 +1,65 @@
-body {
-  line-height: 1.6;
-  inline-size: min(60ch, 100vw - 2rem);
-  margin-inline: auto;
-  font-family: Verdana, Arial, Helvetica, sans-serif;
+*, *::before, *::after {
+  box-sizing: border-box;
 }
+
+body {
+  margin: 0;
+  line-height: 1.6;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-block-size: 100vh;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-inline-size: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+h2, h3, h4, h5, h6 {
+  scroll-margin-block-start: 4rem;
+}
+
+h2 > a, h3:not(.article-preview-title) > a, h4 > a, h5 > a, h6 > a {
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+}
+
+h2 > a:hover, h3:not(.article-preview-title) > a:hover, h4 > a:hover, h5 > a:hover, h6 > a:hover {
+  text-decoration: underline;
+}
+
+h2 > a:hover::before, h3 > a:hover::before, h4 > a:hover::before, h5 > a:hover::before, h6 > a:hover::before {
+  content: "#";
+  position: absolute;
+  inset-inline-end: -1rem;
+  inset-block-start: -0.25rem;
+  color: blue;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+pre {
+  padding: 1rem;
+}
+
+.container {
+  inline-size: min(60ch, 100% - 2rem);
+  margin-inline: auto;
+}
+
+.area {
+  padding-block: 2rem;
+}
+

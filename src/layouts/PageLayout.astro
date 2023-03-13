@@ -22,20 +22,66 @@ const currentYear = new Date().getFullYear();
 	</head>
 	<body>
 		<header>
-			<a href="/" aria-label="Thilo Hohlt homepage">
-				<svg version="1.1" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
-					<title>Thilo Hohlt</title>
-				  <rect width="100%" height="100%" fill="#2563eb" rx="4" />
-				  <text x="16" y="22" font-size="16" font-family="Verdana, Arial, Helvetica, sans-serif" font-weight="bold" text-anchor="middle" fill="white">TH</text>
-				</svg>
-			</a>
+			<div class="container">
+				<a href="/" aria-label="Thilo Hohlt homepage">
+					<svg version="1.1" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+						<title>Thilo Hohlt</title>
+					  <rect width="100%" height="100%" fill="#2563eb" rx="4" />
+					  <text x="16" y="22" font-size="16" font-family="Verdana, Arial, Helvetica, sans-serif" font-weight="bold" text-anchor="middle" fill="white">TH</text>
+					</svg>
+				</a>
+				<nav>
+					<a href="/#about">About</a>
+					<a href="/#articles">Articles</a>
+				</nav>
+			</div>
 		</header>
     <main>
       <slot />
     </main>
-		<footer>
-			<p>© 2023 All Rights Reserved.</p>
-			<a href="https://github.com/thiloho/website">Website source code</a>
+		<footer class="area">
+			<div class="container">
+				<p>© 2023 All Rights Reserved.</p>
+				<a href="https://github.com/thiloho/website">Website source code</a>
+			</div>
 		</footer>
 	</body>
 </html>
+
+<style>
+	header {
+		background-color: hsl(0 0% 95%);
+		z-index: 10;
+		position: sticky;
+		inset-block-start: 0;
+		box-shadow: 0 0.125rem 0.25rem 0 hsl(0 0% 15% / 0.1), 0 0.125rem 0.25rem -0.125rem hsl(0 0% 15% / 0.1);
+	}
+
+	header > .container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	header nav {
+		display: flex;
+	}
+
+	header nav a {
+		padding-inline: 1rem;
+		padding-block: 1rem 0.75rem;
+		border-block-end: 0.25rem solid transparent;
+		text-decoration: none;
+		color: inherit;
+	}
+
+	header nav a:hover {
+		background-color: hsl(0 0% 90%);
+		border-color: #2563eb;
+	}
+
+	footer {
+		background-color: hsl(0 0% 95%);	
+		margin-block-start: auto;
+	}
+</style>

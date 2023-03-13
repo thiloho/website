@@ -2,6 +2,8 @@
 import { CollectionEntry, getCollection } from "astro:content";
 import PageLayout from "../../layouts/PageLayout.astro";
 import FormattedDate from "../../components/FormattedDate.astro";
+import TagList from "../../components/TagList.astro";
+
 export async function getStaticPaths() {
 	const articles = await getCollection("articles");
 	return articles.map(article => ({
@@ -9,20 +11,50 @@ export async function getStaticPaths() {
 		props: article,
 	}));
 }
+
 type Props = CollectionEntry<"articles">;
 const article = Astro.props;
-const { Content } = await article.render();
+const { Content, headings } = await article.render();
 ---
 
 <PageLayout {...article.data}>
 	<article>
-		<header>
-			<h1>{article.data.title}</h1>
-			<FormattedDate date={article.data.publicationDate} />
+		<header class="area">
+			<div class="container">
+				<h1>{article.data.title}</h1>
+				<FormattedDate date={article.data.publicationDate} />
+				<TagList tags={article.data.tags} />
+			</div>
 		</header>
-		<Content />
-		<footer>
-			<a href=`https://github.com/thiloho/website/tree/main/src/content/articles/${article.slug}.md`>This article on GitHub</a>
+		<div class="container">
+			<section>
+				<h2 id="table-of-contents">
+					<a href="#table-of-contents">Table of contents</a>
+				</h2>
+				<nav>
+					<ul>
+						{headings
+							.filter(heading => heading.depth === 2)
+							.map(heading => (
+							<li>
+								<a href=`#${heading.slug}`>{heading.text}</a>
+							</li>
+						))}
+					</ul>
+				</nav>
+			</section>
+			<Content />
+		</div>
+		<footer class="area">
+			<div class="container">
+				<a href=`https://github.com/thiloho/website/tree/main/src/content/articles/${article.slug}.md`>This article on GitHub</a>
+			</div>
 		</footer>
 	</article>
 </PageLayout>
+
+<style>
+	h1 {
+		font-size: 2rem;
+	}
+</style>

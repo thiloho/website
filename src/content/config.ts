@@ -5,6 +5,7 @@ const articles = defineCollection({
 		title: z.string(),
 		description: z.string(),
 		publicationDate: z.date(),
+		tags: z.array(z.string())
 	}),
 });
 
