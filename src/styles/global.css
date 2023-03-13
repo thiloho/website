@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   line-height: 1.6;
@@ -31,24 +35,16 @@ h2, h3, h4, h5, h6 {
 h2 > a, h3:not(.article-preview-title) > a, h4 > a, h5 > a, h6 > a {
   text-decoration: none;
   color: inherit;
-  position: relative;
 }
 
-h2 > a:hover, h3:not(.article-preview-title) > a:hover, h4 > a:hover, h5 > a:hover, h6 > a:hover {
+h2 > a:hover, h3:not(.article-preview-title):hover, h4 > a:hover, h5 > a:hover, h6 > a:hover {
   text-decoration: underline;
-}
-
-h2 > a:hover::before, h3 > a:hover::before, h4 > a:hover::before, h5 > a:hover::before, h6 > a:hover::before {
-  content: "#";
-  position: absolute;
-  inset-inline-end: -1rem;
-  inset-block-start: -0.25rem;
-  color: blue;
 }
 
 a:hover {
   text-decoration: none;
 }
+
 
 pre {
   padding: 1rem;
