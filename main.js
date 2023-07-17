@@ -1,0 +1,1 @@
+document.querySelector(".current-date-year").textContent = new Date().getFullYear()
