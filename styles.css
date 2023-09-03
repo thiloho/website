@@ -1,9 +1,19 @@
 body {
-  line-height: 1.5;
+  line-height: 1.6;
   max-inline-size: 65ch;
   margin-inline: auto;
   font-family: Verdana, Arial, Helvetica, sans-serif;
   padding-inline: 1rem;
+  background-color: hsl(0 0% 10%);
+  color: white;
+}
+
+a {
+  color: lightskyblue;
+}
+
+a:hover {
+  text-decoration: none;
 }
 
 img {
@@ -16,13 +26,13 @@ header {
   text-align: center;
 }
 
-main {
-  border-block: 0.0625rem solid hsl(0 0% 50%);
-}
-
 h2 > a, h3 > a {
   color: inherit;
   text-decoration: none;
+}
+
+h2 > a:hover, h3 > a:hover {
+  text-decoration: underline;
 }
 
 .software-list {
@@ -43,6 +53,14 @@ table {
 }
 
 th, td {
-  padding-inline: 0.5rem;
-  padding-block: 0.25rem;
+  padding-inline: 1rem;
+  padding-block: 0.5rem;
+}
+
+main > section {
+  margin-block: 4rem;
+}
+
+footer {
+  border-block-start: 0.0625rem solid hsl(0 0% 50%);
 }
