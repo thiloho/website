@@ -22,6 +22,11 @@ img {
   display: block;
 }
 
+ul {
+  padding: 0;
+  list-style: inside;
+}
+
 header {
   text-align: center;
 }
@@ -38,7 +43,6 @@ h2 > a:hover, h3 > a:hover {
 .software-list {
   display: flex;
   list-style: none;
-  padding: 0;
   flex-wrap: wrap;
   column-gap: 1rem;
   row-gap: 0.5rem;
