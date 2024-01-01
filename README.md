@@ -1,3 +1,3 @@
 # website
 
-Source code for [https://thilohohlt.com][thilohohlt.com]
+Source code for [thilohohlt.com](https://thilohohlt.com]
